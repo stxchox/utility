@@ -40,8 +40,6 @@ function maid:__newindex(index, new_task)
             old_task:Disconnect()
         elseif typeof(old_task) == "table" then
             old_task:Remove()
-        elseif typeof(old_task) == "RBXScriptSignal" then
-            old_task:Destroy()
         elseif typeof(old_task) == "thread" then
             task.cancel(old_task)
         elseif old_task.Destroy then
@@ -80,8 +78,6 @@ function maid:do_cleaning()
             task_data()
         elseif typeof(task_data) == "RBXScriptConnection" then
             task_data:Disconnect()
-        elseif typeof(task_data) == "RBXScriptSignal" then
-            task_data:Destroy()
         elseif typeof(task_data) == "table" then
             task_data:Remove()
         elseif typeof(task_data) == "thread" then
